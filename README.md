@@ -1,4 +1,0 @@
-paymentPage
-===========
-
-Registration payment page
