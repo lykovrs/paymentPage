@@ -1,0 +1,119 @@
+@import "mixins";
+@import "base";
+@import "card";
+@import "chosen.css";
+
+.p-page {
+
+}
+
+.p-page__inner,
+.p-page_type_inner {
+	position: relative;
+	margin: auto;
+	width: 940px;
+}
+
+//      TOP
+
+.p-page__top {
+	height: 196px;
+}
+
+.p-page__logo {
+	position: absolute;
+}
+
+.p-page__type_ufs {
+	top: 50px;
+	left: 10px;
+}
+
+.p-page__type_alpha {
+	top: 75px;
+	right: 5px;
+}
+
+.p-page__sum {
+	font: normal 30px/193px arial;
+	color: $blue;
+	padding-left: 159px;
+}
+
+.p-page__price {
+	color: $yellow;
+}
+//      Center
+
+.p-page__center{
+	height: 535px;
+	min-width: 940px;
+	border-top: 1px solid $lightBackground;
+	border-bottom: 1px solid $lightBackground;
+	background: $background;
+}
+
+.p-page__c-types {
+	width: 624px;
+	margin: 66px auto 86px;
+}
+
+.p-page__c-type {
+	width: 300px;
+	text-transform: uppercase;
+	font: normal 24px/50px arial;
+	border: 2px solid $blue;
+	color: $blue;
+	background: transparent;
+	text-align: center;
+	cursor: pointer;
+
+	&:hover {
+		background: $blue;
+		color: #fff;
+	}
+}
+
+.p-page__c-type_t_active {
+	background: $yellow;
+	border-color: $yellow;
+	color: black;
+
+	&:hover {
+		background: $yellow;
+		color: #000000;
+	}
+}
+
+
+//      Bottom
+.p-page__bottom {
+	height: 118px;
+	padding-top: 60px;
+}
+
+.p-page__pay {
+	@include border-radius(25px);
+
+	font: bold 24px/50px arial;
+	border-left: none;
+	border-top: none;
+	border-right: none;
+	display: block;
+	margin: auto;
+	width: 300px;
+	background: $blue;
+	color: #fff;
+	text-transform: uppercase;
+	border-bottom: 4px solid $lightBlue;
+
+	&:hover {
+		background: $yellow;
+		border-color: $lightYellow;
+	}
+
+	&:focus {
+		outline: none;
+	}
+}
+

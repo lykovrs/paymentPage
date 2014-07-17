@@ -1,0 +1,19 @@
+
+@mixin border-radius($radius) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	-ms-border-radius: $radius;
+	-o-border-radius: $radius;
+	border-radius: $radius;
+}
+
+@mixin inline-block($valign: "none")
+{
+	display: -moz-inline-stack;
+	display: inline-block;
+	*zoom: 1;
+	*display: inline;
+	@if $valign and $valign != "none" {
+		vertical-align: $valign;
+	}
+}

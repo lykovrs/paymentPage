@@ -1,0 +1,231 @@
+@import "base";
+
+.p-card {
+	@include border-radius(10px);
+
+	width: 385px;
+	height: 230px;
+	position: relative;
+	border-bottom: 4px solid $blue;
+
+}
+
+.p-card_side_front {
+
+}
+
+.p-card_side_back {
+	margin: 0 0 0 372px ;
+	background: $lightBlue;
+
+	&:after {
+		content: " ";
+		display: block;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 20px;
+		height: 53px;
+		background: $blue;
+	}
+}
+
+.p-card_side_front {
+	position: absolute;
+	top: 31px;
+	left: -187px;
+	z-index: 1;
+	background: $background-card;
+	padding: 0 30px;
+	width: 325px;
+
+	&:after {
+		content: " ";
+		display: block;
+		position: absolute;
+		right: -96px;
+		top: 5px;
+		height: 197px;
+		width: 96px;
+		background: url("../images/bgs.png") no-repeat;
+	}
+}
+
+.p-card__label {
+	text-transform: uppercase;
+	font-size: 13px;
+	line-height: 30px;
+	display: block;
+	color: #fff;
+}
+
+.p-card__label_type_select {
+	display: inline-block;
+	padding-left: 8px;
+	margin-right: 24px
+}
+
+.p-card__label_t_back {
+	position: absolute;
+	top: -25px;
+	right: 23px;
+}
+
+.p-card__input {
+	@include border-radius(3px);
+
+	line-height: 38px;
+	height: 38px;
+	border: 1px solid $blue;
+	padding: 0 5px;
+	font-size: 26px;
+	width: 313px;
+	color: #000;
+
+	&:focus {
+		-webkit-box-shadow: 0px 0px 7px 0px rgba(255, 255, 255, 0.75);
+		-moz-box-shadow:    0px 0px 7px 0px rgba(250, 255, 255, 0.75);
+		box-shadow:         0px 0px 7px 0px rgba(255, 255, 255, 0.75);
+
+	}
+
+	&:hover {
+		border: 2px solid $yellow;
+		line-height: 36px;
+		height: 36px;
+		padding: 0 4px;
+	}
+}
+
+.p-card__input_psevdo_input {
+	background: #fff;
+	color: $gray;
+}
+
+.p-card__input_focus_no {
+	&:hover {
+		border: 1px solid $blue;
+		line-height: 38px;
+		height: 38px;
+		padding: 0 5px;
+	}
+}
+
+.p-card__input_type_half {
+	width: 34px;
+	border: none;
+	padding: 0;
+	line-height: 34px;
+	height: 34px;
+
+	&:hover {
+		border: 0;
+		line-height: 32px;
+		height: 32px;
+		padding: 0;
+	}
+
+	&:focus {
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+		box-shadow: none;
+
+	}
+}
+
+.p-card__input_type_cvc {
+	width: 63px;
+	margin: 5px;
+}
+
+.p-card__input.invalid {
+	border: 1px solid red;
+
+	&:hover {
+		border: 1px solid red;
+		line-height: 38px;
+		height: 38px;
+		padding: 0 5px;
+	}
+}
+
+.p-card__cvc {
+	@include border-radius(0 5px 5px 0);
+	background: #a3c0d1;
+	text-align: right;
+	text-transform: uppercase;
+	color: $blue;
+	position: absolute;
+	top: 108px;
+	left: 0;
+	right: 25px;
+
+	&:after {
+		content: " ";
+		display: block;
+		position: absolute;
+		top: 17px;
+		right: 89px;
+		width: 50px;
+		height: 16px;
+		background: url("../images/bgs.png") no-repeat -96px 0;
+
+	}
+}
+
+.p-card__input_type_num {
+	width: 20%;
+	margin: 0.3%;
+	display: inline-block;
+	vertical-align: bottom;
+
+	&:first-child {
+		margin-left: 0;
+		color: red;
+	}
+}
+
+
+
+.p-card__logo,
+.p-card__sel-name,
+.p-card__sel {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.p-card__logo {
+	@include border-radius(3px);
+
+	width: 72px;
+	height: 45px;
+	margin-top: 26px;
+	background: url("../images/bgs.png") no-repeat;
+}
+
+.p-card__logo_type_visa {
+	background-position: -72px -198px;
+}
+
+.p-card__logo_type_mastercard {
+	background-position: 0 -198px;
+}
+
+.p-card__sel-wrap {
+	color: #fff;
+	line-height: 44px;
+	font-size: 20px;
+	text-align: right;
+}
+
+.p-card__sel-name {
+	width: 92px;
+	text-align: right;
+	line-height: 18px;
+	margin-top: 35px;
+}
+
+.p-card__sel {
+	width: 155px;
+}
+

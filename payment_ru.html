@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Заголовок</title>
+
+    <link rel="stylesheet" href="css/style.css"/>
+
+    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="js/chosen.jquery.js"></script>
+    <!--<script type="text/javascript" src="js/jquery.timers.js"></script>-->
+    <!--<script type="text/javascript" src="js/jquery.URI.js"></script>-->
+
+    <script type="text/javascript" src="js/jquery.payment.js"></script>
+    <script type="text/javascript" src="js/paymentPage.js"></script>
+</head>
+<body>
+
+    <div id="orderNumber"></div>
+    <div id="amount"></div>
+    <div id="description"></div>
+
+
+    <form class="p-page" name="PaymentForm" action="#" method="post" id="formPayment" novalidate autocomplete="on">
+
+        <input type="hidden" id="expiry" >
+        <input type="hidden" id="mdOrder" >
+        <input type="hidden" id="location" value="/../" >
+        <input type="hidden" id="language" value="ru" >
+
+        <div class="p-page__top p-page_type_inner">
+
+            <div class="p-page__logo p-page__type_ufs">
+                <a href="#">
+                    <img src="images/ufs_logo.png" alt="Универсальная Финансовая Система"/>
+                </a>
+            </div>
+            <div class="p-page__logo  p-page__type_alpha">
+                <a href="#">
+                    <img src="images/a_logo.png" alt="Альфа Банк"/>
+                </a>
+            </div>
+
+            <div class="p-page__sum">Cумма платежа <span class="p-page__price">1000 р</span></div>
+
+        </div>
+
+
+
+        <div class="p-page__center">
+            <div class="p-page__inner">
+                <div class="p-page__c-types clearfix">
+                    <div class="p-page__c-type visa p-page__c-type_t_active float-left">
+                        visa
+                    </div>
+                    <div class="p-page__c-type mastercard float-right">
+                        mastercard
+                    </div>
+                </div>
+
+                <div class="p-card p-card_side_back">
+                    <div class="p-card__cvc">
+                        <label class="p-card__label p-card__label_t_back"  for="iCVC">cvc код</label>
+                        <input name="$CVC" id="iCVC" class="p-card__input p-card__input_type_cvc" maxlength="3" type="password" autocomplete="off" />
+                    </div>
+
+
+
+                    <div class="p-card p-card_side_front">
+                        <div>
+                            <label class="p-card__label" for="iPAN1">номер карты</label>
+                            <input name="$PAN" id="iPAN" maxlength="19" type="hidden" autocomplete="off" />
+
+                            <input class="p-card__input p-card__input_type_num" name="$PAN1" id="iPAN1" maxlength="4" type="hidden" autocomplete="off"  data-numeric />
+                            <span class="p-card__input p-card__input_type_num p-card__input_psevdo_input p-card__input_focus_no"  id="iPAN1-pseudo"></span>
+
+                            <input class="p-card__input p-card__input_type_num" name="$PAN3" id="iPAN2" maxlength="2" type="hidden" autocomplete="off"  data-numeric />
+                            <span class="p-card__input p-card__input_type_num p-card__input_psevdo_input"><span id="iPAN2-pseudo"></span><input class="p-card__input p-card__input_type_half" name="$PAN1" id="iPAN3" maxlength="2" type="text" autocomplete="off"  data-numeric /></span>
+                            <input class="p-card__input p-card__input_type_num" name="$PAN4" id="iPAN4" maxlength="4" type="text" autocomplete="off"  data-numeric />
+                            <input class="p-card__input p-card__input_type_num" name="$PAN5" id="iPAN5" maxlength="4" type="text" autocomplete="off"  data-numeric />
+                        </div>
+
+                        <div>
+                            <label class="p-card__label" for="iTEXT">Владелец</label>
+                            <input class="p-card__input" name="TEXT" id="iTEXT" maxlength="90" type="text" autocomplete="off" />
+                        </div>
+
+                        <div>
+                            <div class="p-card__logo p-card__logo_type_visa"></div>
+
+                            <div class="p-card__sel-name p-card__label">Срок действия</div>
+
+                            <div class="p-card__sel">
+
+                                <div>
+                                    <label class="p-card__label p-card__label_type_select" for="month">месяц</label>
+                                    <label class="p-card__label p-card__label_type_select" for="year">год</label>
+                                </div>
+
+                                <div class="p-card__sel-wrap">
+                                    <input type="hidden" id="iDATE" pattern="\d*" x-autocompletetype="cc-exp" placeholder="Expires MM/YY" required maxlength="9">
+
+                                    <select name="MM" id="month" class="p-card__select ">
+                                        <option value="01" selected>01</option>
+                                        <option value="02">02</option>
+                                        <option value="03">03</option>
+                                        <option value="04">04</option>
+                                        <option value="05">05</option>
+                                        <option value="06">06</option>
+                                        <option value="07">07</option>
+                                        <option value="08">08</option>
+                                        <option value="09">09</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                    </select> /
+
+                                    <select name="YYYY" id="year" class="p-card__select">
+                                        <option value='2014' selected>14</option>
+                                        <option value='2015'>15</option>
+                                        <option value='2016'>16</option>
+                                        <option value='2017'>17</option>
+                                        <option value='2018'>18</option>
+                                        <option value='2019'>19</option>
+                                        <option value='2020'>20</option>
+                                        <option value='2021'>21</option>
+                                        <option value='2022'>22</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-page__bottom p-page_type_inner">
+            <input class="p-page__pay" value="Оплатить" type="submit" id="buttonPayment">
+
+        </div>
+
+    </form>
+
+    <form id="acs" method="post" action="">
+        <input type="hidden" id="MD" name="MD"/>
+        <input type="hidden" id="PaReq" name="PaReq"/>
+        <input type="hidden" id="TermUrl" name="TermUrl"/>
+    </form>
+
+    <div id="errorBlock" style="color:red;"></div>
+    <div id="numberCountdown"></div>
+    <div id="infoBlock"></div>
+    <div id="indicator" style="display:none;">
+        <!--<img src="../../img/ajax-loader.gif" height="19" width="220" alt="indicator">-->
+    </div>
+</body>
+</html>
