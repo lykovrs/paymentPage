@@ -42,6 +42,10 @@
 
 .p-page__price {
 	color: $yellow;
+
+	#amount {
+		display: inline;
+	}
 }
 //      Center
 
@@ -117,3 +121,32 @@
 	}
 }
 
+#orderNumber,
+#description {
+	display: none;
+}
+
+.p-card__select {
+	padding: 0 8px;
+	height: 40px;
+	border-radius: 3px;
+	border: 1px solid #3c5868;
+	background-color: #fff;
+	background-clip: padding-box;
+	box-shadow: 0 0 3px white inset, 0 1px 1px rgba(0, 0, 0, 0.1);
+	color: #5e6163;
+	text-decoration: none;
+	white-space: nowrap;
+	font-size: 18px;
+
+	option {
+		padding: 3px 0;
+	}
+
+}
+
+#errorBlock,
+#numberCountdown,
+#infoBlock {
+	display: none;
+}

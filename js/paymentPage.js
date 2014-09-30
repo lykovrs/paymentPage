@@ -1,50 +1,24 @@
-//Инициализация валидатора
-
-jQuery(function($){
-	$('[data-numeric]').payment('restrictNumeric');
-	$('#iPAN').payment('formatCardNumber');
-	$('#iDATE').payment('formatCardExpiry');
-	$('#iCVC').payment('formatCardCVC');
-
-	$('form').submit(function(e){
-		e.preventDefault();
-		$('input').removeClass('invalid');
-		$('.validation').removeClass('passed failed');
-
-		var cardType = $.payment.cardType($('#iPAN').val());
-
-		$('#iPAN').toggleClass('invalid', !$.payment.validateCardNumber($('#iPAN').val()));
-		$('#iDATE').toggleClass('invalid', !$.payment.validateCardExpiry($('#iDATE').payment('cardExpiryVal')));
-		$('#iCVC').toggleClass('invalid', !$.payment.validateCardCVC($('#iCVC').val(), cardType));
-
-
-		if ( $('input.invalid').length ) {
-			$('.validation').addClass('failed');
-		} else {
-			$('.validation').addClass('passed');
-		}
-
-		if($("#iPAN").hasClass("invalid")){
+$(document).ready(function(){
+	$("#formPayment").submit(function(e){		
+		if ($('#iPAN').hasClass("invalid")) {
 			$(".p-card__input_type_num").addClass("invalid");
 		} else {
 			$(".p-card__input_type_num").removeClass("invalid");
 		}
-
-		if($("#iDATE").hasClass("invalid")){
-			$(".chosen-single").addClass("invalid");
+		
+		if ($('#year').hasClass("invalid")) {
+			$('#year_chosen a').addClass("invalid");
 		} else {
-			$(".chosen-single").removeClass("invalid");
+			$('#year_chosen a').removeClass("invalid");
 		}
-
-		if($("#iTEXT").val() == false){
-			$("#iTEXT").addClass("invalid");
+		
+		if ($('#month').hasClass("invalid")) {
+			$('#month_chosen a').addClass("invalid");
 		} else {
-			$("#iTEXT").removeClass("invalid");
+			$('#month_chosen a').removeClass("invalid");
 		}
 	});
-});
 
-$(document).ready(function(){
 	var elem = $(".p-page__c-type");
 
 	//	Начальные числа в зависимости от типа карты
@@ -81,7 +55,7 @@ $(document).ready(function(){
 
 	changeSV(elem);
 
-	elem.on("click", function(){
+	elem.bind("click", function(){
 		var logo = $(".p-card__logo"),
 			elem = $(this);
 
@@ -101,7 +75,7 @@ $(document).ready(function(){
 	});
 
 //	Собираем поля с номером карты
-	$(".p-card__input_type_num").on('change', function(){
+	$(".p-card__input_type_num").bind('change', function(){
 		var val_1 = $("#iPAN1").val(),
 			val_2 = $("#iPAN2").val(),
 			val_3 = $("#iPAN3").val(),
@@ -129,7 +103,7 @@ $(document).ready(function(){
 
 
 //  Собираем поля с датой
-	$(".p-card__select").on('change', function(){
+	$(".p-card__select").bind('change', function(){
 		var month = $("#month").val(),
 			year = $("#year").val(),
 			values = "";
@@ -143,6 +117,9 @@ $(document).ready(function(){
 //	Инициализируем нестандартные селекты
 	$(".p-card__select").chosen({width: "65px"});
 
+
+	var monthSel = $("#month"),
+		yearSel = $("#year");
 
 });
 

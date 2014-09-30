@@ -10,10 +10,6 @@
 
 }
 
-.p-card_side_front {
-
-}
-
 .p-card_side_back {
 	margin: 0 0 0 372px ;
 	background: $lightBlue;
@@ -229,3 +225,10 @@
 	width: 155px;
 }
 
+.p-card__input_type_half.invalid {
+	border: none !important;
+}
+
+.p-card__input_type_half {
+	padding: 0 !important;
+}
